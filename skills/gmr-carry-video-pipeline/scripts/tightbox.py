@@ -18,7 +18,7 @@ and the camera matrix, and see the projected shape. And ALSO track the TOP EDGE 
 Better: look at the actual images once more, zoomed on just the top face."""
 import cv2, os, numpy as np
 os.chdir(r".")
-cap=cv2.VideoCapture("video/20260922_165945.mp4")
+cap=cv2.VideoCapture("example/20260922_162859/video/20260922_162859.mp4")
 frames=[176,182,188,192,196,200,204,208,214,220,240,252,258,264,270]
 tiles=[]
 for f in frames:
@@ -36,5 +36,5 @@ H=max(t.shape[0] for t in tiles)
 tiles=[np.vstack([t,np.zeros((H-t.shape[0],t.shape[1],3),np.uint8)]) if t.shape[0]<H else t for t in tiles]
 rows=[np.hstack(tiles[i:i+5]) for i in range(0,len(tiles),5)]
 sheet=np.vstack(rows)
-ok,buf=cv2.imencode(".jpg",sheet,[cv2.IMWRITE_JPEG_QUALITY,94]); buf.tofile(".workbuddy/out/tightbox.jpg")
+ok,buf=cv2.imencode(".jpg",sheet,[cv2.IMWRITE_JPEG_QUALITY,94]); buf.tofile("agent/out/tightbox.jpg")
 print("wrote",sheet.shape)

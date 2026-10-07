@@ -50,14 +50,19 @@ OUT = os.path.join(REPO, "agent", "out")
 def main():
     os.makedirs(OUT, exist_ok=True)
 
-    # 复用**已交付**的 fit 产物(354 帧, 100% 有效率), 不重跑拟合
-    fit_src = os.path.join(REPO, "data", "20260922_165945_6dof.npz")
+    # 复用**随包样例**的 fit 产物(418 帧, 100% 有效率), 不重跑拟合。
+    # ★ 源仓库里这行原本读 data/20260922_165945_6dof.npz —— 那条素材
+    #   没有随包分发（体积原因），克隆者一跑就会 sys.exit。
+    #   改成 example/ 里随包的那条（20260922_162859），包内自洽。
+    fit_src = os.path.join(REPO, "example", "20260922_162859", "data",
+                           "20260922_162859_6dof.npz")
     fit_dst = os.path.join(OUT, "%s_6dof.npz" % PREFIX)
     if not os.path.isfile(fit_src):
-        sys.exit("missing %s" % fit_src)
+        sys.exit("missing %s  —— 该文件应随包附带（example/20260922_162859/data/）"
+                 % fit_src)
     import shutil
     shutil.copy2(fit_src, fit_dst)
-    print("reusing delivered fit: %s" % os.path.relpath(fit_src, REPO))
+    print("reusing example fit: %s" % os.path.relpath(fit_src, REPO))
 
     # ★ 用 run_v29.ps1 的**逐字参数**复现交付片。
     #   只给最小默认集会渲染出一个未调参版本(QA 失败点变成 f280),
@@ -70,7 +75,7 @@ def main():
         "params": {
             "bag": "(reused)", "hsv": "4,75,79:24,255,255",
             "box_size": "0.30,0.30,0.45",
-            "robot": "data/20260922_165945_g1.pkl",
+            "robot": "example/20260922_162859/data/20260922_162859_g1.pkl",
             "stool_h": 0.45, "quat_max_step_deg": 20,
             "box_sym_snap": "continuity", "hand_roll_deg": 0,
             "render_extra": RENDER_V29,

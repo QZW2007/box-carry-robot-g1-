@@ -20,8 +20,10 @@ run_agent.py -- P1.4 的编排器：把 5 个工具按 calibrate→fit→align�
     python run_agent.py --replay agent/fixtures/A6b.log
 
     # 2) 真跑一条 clip(需要 bag 与 g1.pkl; 很慢)
-    python run_agent.py --bag D:\\bag\\rgbd_20260922_165945\\realsense.bag \\
-        --robot data/20260922_165945_g1.pkl --prefix 20260922_165945 \\
+    #    bag 不随包分发(体积原因); robot 轨迹可用随包样例 example/ 里的
+    python run_agent.py --bag <你的数据根>/rgbd_20260922_162859/realsense.bag \\
+        --robot example/20260922_162859/data/20260922_162859_g1.pkl \\
+        --prefix 20260922_162859 \\
         --hsv 4,75,79:24,255,255 --box-size 0.30,0.30,0.45
 
     # 3) 故意用错 box_size, 验证"识别并停下问人"

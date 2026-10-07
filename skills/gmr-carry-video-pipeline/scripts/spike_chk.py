@@ -5,7 +5,7 @@ to see whether raising the limit reintroduces isolated 'twist' spikes
 import numpy as np, pickle, os
 from scipy.spatial.transform import Rotation as R, Slerp
 os.chdir(r".")
-w=np.load("data/20260922_165945_world_6dof.npz")
+w=np.load("example/20260922_162859/data/20260922_162859_world_6dof.npz")
 pR0=w["box_R_world"].copy(); cov=w["carry"].astype(bool); n=pR0.shape[0]
 covered=np.nonzero(cov)[0]
 syms8=[]

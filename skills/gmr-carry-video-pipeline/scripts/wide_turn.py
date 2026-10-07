@@ -3,7 +3,7 @@
 import numpy as np, os, cv2
 os.chdir(r".")
 
-w = np.load("data/20260922_165945_world_6dof.npz")
+w = np.load("example/20260922_162859/data/20260922_162859_world_6dof.npz")
 B = w["box_R_world"]; n = B.shape[0]
 def face_az(M):
     x = M[:,0]; return np.degrees(np.arctan2(x[1], x[0]))
@@ -23,7 +23,7 @@ for f in range(150, 331, 4):
     if f < len(au) and np.isfinite(au[f]):
         print(f"  f{f:<4} {au[f]:8.1f}")
 
-cap = cv2.VideoCapture("video/20260922_165945.mp4")
+cap = cv2.VideoCapture("example/20260922_162859/video/20260922_162859.mp4")
 print("\n=== frame | box rect w,h,ang | aspect w/h | label x-frac (off from box cx / box w) ===")
 f = 0
 while True:

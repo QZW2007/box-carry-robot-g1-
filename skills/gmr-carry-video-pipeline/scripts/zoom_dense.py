@@ -5,7 +5,7 @@ import cv2, os, numpy as np
 os.chdir(r".")
 
 def strip(frames, out, cw_frac=0.19, ch_frac=0.40, cx_frac=0.47, cy_frac=0.50, tw=170, cols=8):
-    cap = cv2.VideoCapture("video/20260922_165945.mp4")
+    cap = cv2.VideoCapture("example/20260922_162859/video/20260922_162859.mp4")
     tiles = []
     for f in frames:
         cap.set(cv2.CAP_PROP_POS_FRAMES, f); ok, im = cap.read()
@@ -32,6 +32,6 @@ def strip(frames, out, cw_frac=0.19, ch_frac=0.40, cx_frac=0.47, cy_frac=0.50, t
     print("wrote", out, sheet.shape)
 
 # turn-out段, dense
-strip(list(range(176, 216, 2)), ".workbuddy/out/turnA.jpg")
+strip(list(range(176, 216, 2)), "agent/out/turnA.jpg")
 # later段 (turn back?), sparse
-strip(list(range(216, 292, 4)), ".workbuddy/out/turnB.jpg")
+strip(list(range(216, 292, 4)), "agent/out/turnB.jpg")

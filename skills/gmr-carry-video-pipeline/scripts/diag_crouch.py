@@ -21,9 +21,9 @@ import torch
 from general_motion_retargeting import KinematicsModel, ROBOT_XML_DICT
 from general_motion_retargeting.data_loader import load_robot_motion
 
-PKL = sys.argv[1] if len(sys.argv) > 1 else "data/20260922_161727_g1.pkl"
+PKL = sys.argv[1] if len(sys.argv) > 1 else "example/20260922_162859/data/20260922_162859_g1.pkl"
 USED = sys.argv[2] if len(sys.argv) > 2 else \
-    "data/20260922_161727_boxpose_used.npz"
+    "example/20260922_162859/data/20260922_162859_boxpose_used.npz"
 F0 = int(sys.argv[3]) if len(sys.argv) > 3 else 120
 F1 = int(sys.argv[4]) if len(sys.argv) > 4 else 178
 

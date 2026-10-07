@@ -17,9 +17,9 @@ import torch
 from general_motion_retargeting import KinematicsModel, ROBOT_XML_DICT
 from general_motion_retargeting.data_loader import load_robot_motion
 
-PKL = sys.argv[1] if len(sys.argv) > 1 else "data/20260922_161727_g1.pkl"
+PKL = sys.argv[1] if len(sys.argv) > 1 else "example/20260922_162859/data/20260922_162859_g1.pkl"
 WORLD = sys.argv[2] if len(sys.argv) > 2 else \
-    "data/20260922_161727_world_6dof.npz"
+    "example/20260922_162859/data/20260922_162859_world_6dof.npz"
 
 md, fps, _, _, _, _, _ = load_robot_motion(PKL)
 km = KinematicsModel(str(ROBOT_XML_DICT["unitree_g1"]), device="cpu")

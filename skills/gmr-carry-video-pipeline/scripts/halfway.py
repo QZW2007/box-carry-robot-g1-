@@ -15,17 +15,17 @@ def uw(a, per):
         while o[i]-o[i-1] < -per/2: o[i] += per
     return o
 
-p = pickle.load(open('data/20260922_165945_g1.pkl','rb'))
+p = pickle.load(open('example/20260922_162859/data/20260922_162859_g1.pkl','rb'))
 rr = p['root_rot']
 body = uw(np.degrees(np.arctan2(2*(rr[:,3]*rr[:,2]+rr[:,0]*rr[:,1]),
                                 1-2*(rr[:,1]**2+rr[:,2]**2))), 360)
 n = len(body)
-w = np.load('data/20260922_165945_world_6dof.npz'); B = w['box_R_world']
+w = np.load('example/20260922_162859/data/20260922_162859_world_6dof.npz'); B = w['box_R_world']
 raw = np.full(n, np.nan)
 for i in range(B.shape[0]):
     if np.all(np.isfinite(B[i])): raw[i] = np.degrees(np.arctan2(B[i][1,0], B[i][0,0]))
 rawu = uw(raw, 90)
-d = np.load('.workbuddy/boxpose_v28.npz'); q = d['box_quat_xyzw']
+d = np.load('example/20260922_162859/data/20260922_162859_boxpose_used.npz'); q = d['box_quat_xyzw']
 ren = np.full(n, np.nan)
 for i in range(len(q)):
     if d['cov'][i]:
