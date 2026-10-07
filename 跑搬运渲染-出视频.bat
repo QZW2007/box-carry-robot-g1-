@@ -32,8 +32,8 @@ for %%F in ("data\*_g1.pkl") do (
 )
 echo.
 if !N!==0 (
-  set "PKL=data\20260917_212026_g1.pkl"
-  echo   没有带实测轨迹的素材，使用默认：!PKL!
+  set "PKL=example\20260922_162859\data\20260922_162859_g1.pkl"
+  echo   没有带实测轨迹的素材，使用随包样例：!PKL!
 ) else if !N!==1 (
   call set "PKL=%%OPT1%%"
   echo   仅一个带实测轨迹的素材，自动选择：!PKL!
