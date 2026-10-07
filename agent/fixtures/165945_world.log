@@ -1,0 +1,39 @@
+C:\Users\QZW\anaconda3\envs\gmr\lib\site-packages\torch\jit\_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+rotation canonicalised over 354 measured frames (symmetry-equivalent solutions made continuous; 169 remaining >5 deg steps)
+box_pose: 354/354 frames carry a 6-DoF measurement (fitted box size [0.3  0.3  0.45] m)
+frame offset: bag[i+(-6)] <-> pkl[i]   (corr 0.621, 354 pkl / 354 bag frames)
+  note: correlation peak is flat (best 0.6213 vs runner-up 0.6210); a +/-1 frame (~33 ms) ambiguity exists and is left for the inlier gate to absorb
+seed fit on 177 frames: s=0.751
+iter 1: inliers 237/348  median 101 mm  p90 196 mm  s=0.717
+iter 2: inliers 238/348  median 106 mm  p90 150 mm  s=0.716
+iter 3: inliers 238/348  median 107 mm  p90 150 mm  s=0.716
+iter 4: inliers 238/348  median 107 mm  p90 150 mm  s=0.716
+motion split: box leaves the floor at pkl f145 (height -1.093->-0.677 m, tol 4 mm), set down and still at f280  [Sim3-free: the box's own height/speed in the camera]
+
+gravity from 212 parked frames: [+0.000, -0.999, -0.032] in camera coords (camera pitch vs -y_cam: 1.8 deg)
+  unconstrained fit leaned the up-axis 4.9 deg off gravity -> locking R, re-solving s,t
+[grav-locked] seed fit on 177 frames: s=0.746
+[grav-locked] iter 1: inliers 234/348  median 111 mm  p90 161 mm  s=0.717
+[grav-locked] iter 2: inliers 236/348  median 107 mm  p90 165 mm  s=0.716
+[grav-locked] iter 3: inliers 236/348  median 106 mm  p90 165 mm  s=0.716
+[grav-locked] iter 4: inliers 236/348  median 106 mm  p90 165 mm  s=0.716
+
+axis check: cam-up vs world +z = 1.8 deg   toward-cam vs walk dir = 54.7 deg
+scale camera->G1 world: 0.716  (G1 world is 1.40x real metres)
+inlier gate: 0.22 world m = 0.307 real m
+motion split: box leaves the floor at pkl f145 (height -1.093->-0.677 m, tol 4 mm), set down and still at f280  [Sim3-free: the box's own height/speed in the camera]
+floor z (G1 world): +0.006
+ground-phase box z: median +0.348 (p10 +0.343, p90 +0.677, spread 333 mm)  => implied centroid height 0.487 m (> box centre 0.225 by the front+top-face centroid bias; spread is the real check)
+phase split: carry 136  ground 212  invalid 6
+
+6-DoF box pose in world coords: 348 frames
+  on the FLOOR (pre-pickup): box CENTRE z median +0.319  spread 11 mm  (139 frames)
+      vs floor + half box scaled by s = +0.167 (err +0.152) ; unscaled (= what the renderer draws) = +0.231 (err +0.088)
+  on the STOOL (post-drop): box CENTRE z median +0.647  spread 6 mm  (73 frames)
+      vs floor + half box scaled by s = +0.489 (err +0.158) ; unscaled (= what the renderer draws) = +0.681 (err -0.034)
+  floor->stool RISE of the box centre: +0.328 world m = +0.458 real m ; a 0.450 m stool needs +0.322 world m.  The data implies a stool top 0.458 m above the floor -- if the real stool does not match, the translation scale s and the object metric disagree, which is a property of this project's render world, not of the cuboid fit.
+  NOTE: this absolute z is the Umeyama constant, and the shipped renderer never uses the measured z for the parked phases -- it sets floor + half box directly.  vis_robot_with_box.py --box_pose_world anchors it the same way by default (--pose_z rest).
+  box z-axis vs world up: median 175.8 deg  p90 179.2 deg
+
+written -> data/20260922_165945_world_6dof.npz

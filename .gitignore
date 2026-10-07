@@ -1,0 +1,73 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# ---- 虚拟环境 ----
+.venv/
+venv/
+env/
+
+# ---- 本机打包/运行临时物 ----
+.pack_backup/
+agent/out/
+*.log
+*.tmp
+*.temp
+# ★ 例外：agent/fixtures/*.log 是**诊断测试的证据**（真实运行日志），必须入库。
+#   早期版本这里只写 *.log，结果 fixtures 被一起排除，
+#   克隆出来的仓库跑 test_diagnose.py 会全红（raw_len: 0）。
+!agent/fixtures/*.log
+
+# ---- 大体积二进制（不入库；用 Git LFS 或另行分发）----
+*.bag
+*.db3
+*.zip
+*.7z
+*.tar
+*.tar.gz
+
+# 原始录制与成片（example/ 里的样例是**故意提交**的，用 ! 例外）
+video/
+recordings/
+数据/
+data/
+!example/
+!example/**
+
+# ---- 第三方资产（体积大 / 需自行申请授权）----
+# SMPL-X 人体模型：需自行从 https://smpl-x.is.tue.mpg.de/ 申请，不得再分发
+assets/body_models/
+*.pkl
+*.pth
+*.pt
+*.ckpt
+# 例外：example 里的两条产物是随包样例
+!example/**/*.pkl
+!example/**/*.pt
+
+# ---- 编辑器 / 系统 ----
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 本机绝对路径泄漏防护 ----
+# 若本地调试脚本里写了绝对路径，别误提交
+*.local
+.env
+.env.*
+
+# ---- 大文件提醒（GitHub 单文件 >100 MB 会被拒）----
+# assets/ 里最大的是 mesh，全部 < 10 MB；
+# example/ 里最大的是 mp4 9.3 MB，均安全。

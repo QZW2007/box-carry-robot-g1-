@@ -1,0 +1,9 @@
+{
+  "橙箱": {
+    "hsv": "4,75,79:24,255,255",
+    "prefix": "20260922_161727",
+    "session": "20260922",
+    "source": "20260922_161727.bag",
+    "note": "Calibrated with scripts/calib_hsv.py on 20260922_161727 (the 9.22 hall, mint-tinted walls). HSV is a property of the venue, not the take, so 'session' applies it to every 20260922_* recording from the same room/box."
+  }
+}

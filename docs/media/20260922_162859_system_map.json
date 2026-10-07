@@ -1,0 +1,54 @@
+{
+  "numbers": {
+    "prefix": "20260922_162859",
+    "mp4_frames": 419,
+    "fps": 30.0,
+    "smplx_frames": 419,
+    "betas0": -0.43922457098960876,
+    "human_h_m": 1.6161,
+    "g1_frames": 419,
+    "g1_fps": 30,
+    "dof": 29,
+    "fit_frames": 418,
+    "fit_valid": 418,
+    "iou_median": 0.913,
+    "depth_med_mm": 33.9,
+    "box_size": [
+      0.3,
+      0.3,
+      0.45
+    ],
+    "world_frames": 419,
+    "frame_offset": -8,
+    "scale_s": 0.7389,
+    "scale_inv": 1.353,
+    "n_carry": 161,
+    "meta": {
+      "source_traj": "data/20260922_162859_6dof.npz",
+      "source_motion": "data/20260922_162859_g1.pkl",
+      "source_pose": "data/20260922_162859_6dof.npz",
+      "frame_offset": -8,
+      "scale": 0.7389275794219959,
+      "inlier_m": 0.22,
+      "stool_h": 0.45,
+      "gravity_lock": true
+    },
+    "stool_h": 0.45,
+    "inlier_m": 0.22,
+    "world_nan_frames": 8,
+    "world_nan_range": [
+      0,
+      7
+    ],
+    "world_nan_where": "首部",
+    "axis_up_deg": 1.6,
+    "walk_deg": 1.6,
+    "rise_real_m": 0.455,
+    "rise_err_mm": 5.0
+  },
+  "png": "C:\\Users\\QZW\\Desktop\\大二上\\课题组项目\\GMR-master\\交付物\\20260922_162859_system_map.png",
+  "canvas": [
+    2400,
+    1680
+  ]
+}

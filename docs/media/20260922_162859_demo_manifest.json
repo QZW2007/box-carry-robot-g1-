@@ -1,0 +1,63 @@
+{
+  "prefix": "20260922_162859",
+  "generated_at": "2026-10-07 16:24:16",
+  "inputs": {
+    "real": "video\\20260922_162859.mp4",
+    "rend": "数据\\20260922_162859\\20260922_162859_g1_measured_box_6dof.mp4",
+    "boxview": "video\\20260922_162859_6dof.mp4",
+    "world": "data\\20260922_162859_world_6dof.npz"
+  },
+  "acceptance": {
+    "source": [
+      ".workbuddy\\batch_logs\\20260922_162859_fit.log",
+      ".workbuddy\\batch_logs\\20260922_162859_world.log"
+    ],
+    "iou_median": 0.913,
+    "depth_res_med_mm": 34.0,
+    "fit_ok": 418,
+    "frames_total": 418,
+    "scale": 0.739,
+    "axis_up_deg": 1.6,
+    "rise_real_m": 0.455,
+    "rise_err_mm": 5.0,
+    "turn_amp_deg": 92.5,
+    "turn_amp_metric": "mod-90 unwrap, carry window, pre/post medians (skill unwrap90.py)",
+    "frame_offset": -8
+  },
+  "render_fingerprint_mtime": "2026-10-06 16:19:40",
+  "video": {
+    "video": "C:\\Users\\QZW\\Desktop\\大二上\\课题组项目\\GMR-master\\交付物\\20260922_162859_demo_30s.mp4",
+    "total_frames": 900,
+    "fps": 30,
+    "factor": 0.2791,
+    "n_title": 30,
+    "n_body": 825,
+    "n_end": 45,
+    "panel": [
+      960,
+      540
+    ],
+    "canvas": [
+      1920,
+      540
+    ],
+    "frame_offset_used": -8,
+    "sha256_16": "496814ea6eb4e2ac"
+  },
+  "three_view": {
+    "png": "C:\\Users\\QZW\\Desktop\\大二上\\课题组项目\\GMR-master\\交付物\\20260922_162859_three_view.png",
+    "frames": [
+      180,
+      197,
+      225,
+      272,
+      317,
+      367
+    ],
+    "canvas": [
+      1680,
+      2288
+    ],
+    "sha256_16": "694f8734d9f818aa"
+  }
+}
